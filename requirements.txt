@@ -1,0 +1,11 @@
+# Deployment runtime only. Local testing dependencies remain backend/requirements.txt.
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+SQLAlchemy>=2.0,<3
+pydantic>=2.10,<3
+python-multipart>=0.0.20,<1
+PyMuPDF>=1.25,<2
+Pillow>=11,<13
+pytesseract>=0.3.13,<1
+httpx>=0.28,<1
+psycopg[binary]>=3.2,<4

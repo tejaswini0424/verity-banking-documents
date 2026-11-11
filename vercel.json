@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm ci --prefix frontend",
+  "buildCommand": "npm run build --prefix frontend",
+  "outputDirectory": "frontend/dist",
+  "functions": {"api/index.py": {"maxDuration": 60}},
+  "rewrites": [
+    {"source": "/api/:path*", "destination": "/api/index.py"},
+    {"source": "/docs", "destination": "/api/index.py"},
+    {"source": "/openapi.json", "destination": "/api/index.py"},
+    {"source": "/:path*", "destination": "/index.html"}
+  ],
+  "headers": [
+    {"source": "/:path*", "headers": [
+      {"key": "X-Content-Type-Options", "value": "nosniff"},
+      {"key": "Referrer-Policy", "value": "same-origin"}
+    ]}
+  ]
+}
